@@ -1,0 +1,7 @@
+{
+    "posts-per-page": 2,
+    "title-class": "blog-builder-title",
+    "teaser-class": "blog-builder-teaser",
+    "tag-class": "blog-builder-tag",
+    "metadata-file": "blog-builder-metadata.json"
+}

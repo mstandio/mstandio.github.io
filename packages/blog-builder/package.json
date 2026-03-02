@@ -4,6 +4,7 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "build": "esbuild src/cli.ts --bundle --platform=node --format=esm --banner:js=\"#!/usr/bin/env node\" --outfile=dist/blog-builder.js",
         "verify": "npm run typecheck && npm test",
         "typecheck": "tsc --noEmit",
         "test": "vitest run"
@@ -14,6 +15,7 @@
     },
     "devDependencies": {
         "@types/node": "^22.0.0",
+        "esbuild": "^0.27.3",
         "typescript": "^5.9.3",
         "vitest": "^4.0.18"
     }
