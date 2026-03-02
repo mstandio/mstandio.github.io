@@ -1,6 +1,6 @@
 import { existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { Writer } from './Model.ts';
+import type { Writer } from '@blog/shared';
 
 export class WriterJson implements Writer {
     private readonly outputDir: string;

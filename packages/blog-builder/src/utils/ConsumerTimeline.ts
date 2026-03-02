@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { BuilderConfig, Consumer, Page, PostMetadata, Writer, IndexTimeline } from './Model.ts';
+import type { BuilderConfig, Consumer, Page, PostMetadata, Writer, IndexTimeline } from '@blog/shared';
 
 export class ConsumerTimeline implements Consumer {
     private readonly writer: Writer;

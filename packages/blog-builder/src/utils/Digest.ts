@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { basename, dirname } from 'node:path';
 import { parse } from 'node-html-parser';
-import type { BuilderConfig, Logger, PostMetadata } from './Model.ts';
+import type { BuilderConfig, Logger, PostMetadata } from '@blog/shared';
 
 export type { BuilderConfig, Logger, PostMetadata };
 

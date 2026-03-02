@@ -1,6 +1,6 @@
 import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import type { Consumer } from './Model.ts';
+import type { Consumer } from '@blog/shared';
 
 export type { Consumer };
 

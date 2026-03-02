@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
-import type { BuilderConfig, Index, Page, Writer } from '../utils/Model.ts';
+import type { BuilderConfig, Index, Page, Writer } from '@blog/shared';
 import { ConsumerTimeline } from '../utils/ConsumerTimeline.ts';
 import { traverse } from '../utils/Traverse.ts';
 

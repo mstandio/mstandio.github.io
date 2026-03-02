@@ -1,6 +1,6 @@
 import { existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { BuilderConfig, Consumer } from './Model.ts';
+import type { BuilderConfig, Consumer } from '@blog/shared';
 import { Digest } from './Digest.ts';
 
 export class ConsumerDigest implements Consumer {

@@ -2,7 +2,7 @@ import { existsSync, readFileSync, rmSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
-import type { BuilderConfig, PostMetadata } from '../utils/Model.ts';
+import type { BuilderConfig, PostMetadata } from '@blog/shared';
 import { ConsumerDigest } from '../utils/ConsumerDigest.ts';
 import { Digest } from '../utils/Digest.ts';
 import { traverse } from '../utils/Traverse.ts';

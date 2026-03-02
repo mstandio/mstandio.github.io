@@ -1,5 +1,5 @@
 import { basename } from 'node:path';
-import type { Consumer, Logger } from './Model.ts';
+import type { Consumer, Logger } from '@blog/shared';
 
 export class ConsumerLogger implements Consumer {
     private readonly logger: Logger;

@@ -9,6 +9,7 @@
         "test": "vitest run"
     },
     "dependencies": {
+        "@blog/shared": "*",
         "node-html-parser": "^7.0.0"
     },
     "devDependencies": {

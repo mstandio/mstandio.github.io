@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { BuilderConfig, Consumer, IndexTag, Page, PostMetadata, Writer } from './Model.ts';
+import type { BuilderConfig, Consumer, IndexTag, Page, PostMetadata, Writer } from '@blog/shared';
 
 interface TagEntry {
     page: Page;
