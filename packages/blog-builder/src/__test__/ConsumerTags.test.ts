@@ -11,7 +11,7 @@ const SAMPLE_POSTS = join(__dirname, 'sample-posts');
 
 describe('ConsumerTags', () => {
     const config: BuilderConfig = JSON.parse(
-        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-config.json'), 'utf-8'),
+        readFileSync(join(SAMPLE_POSTS, 'blog-builder-config.json'), 'utf-8'),
     );
 
     it('writes tag page when posts-per-page is reached for a given tag', () => {
@@ -42,7 +42,7 @@ describe('ConsumerTags', () => {
 
 describe('ConsumerTags + traverse integration', () => {
     const config: BuilderConfig = JSON.parse(
-        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-config.json'), 'utf-8'),
+        readFileSync(join(SAMPLE_POSTS, 'blog-builder-config.json'), 'utf-8'),
     );
     const expectedRedPage1: Page = JSON.parse(
         readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-tag_red-page1.json'), 'utf-8'),

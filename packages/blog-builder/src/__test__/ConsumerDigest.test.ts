@@ -84,7 +84,7 @@ describe('ConsumerDigest', () => {
 
 describe('ConsumerDigest + traverse integration', () => {
     const rawConfig: BuilderConfig = JSON.parse(
-        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-config.json'), 'utf-8'),
+        readFileSync(join(SAMPLE_POSTS, 'blog-builder-config.json'), 'utf-8'),
     );
     const testMetadataFile = `blog-builder-metadata-${Date.now()}.json`;
     const integrationConfig: BuilderConfig = { ...rawConfig, 'metadata-file': testMetadataFile };

@@ -11,7 +11,7 @@ const SAMPLE_POSTS = join(__dirname, 'sample-posts');
 
 describe('ConsumerTimeline', () => {
     const config: BuilderConfig = JSON.parse(
-        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-config.json'), 'utf-8'),
+        readFileSync(join(SAMPLE_POSTS, 'blog-builder-config.json'), 'utf-8'),
     );
 
     it('writes page1 JSON after consuming two posts when posts-per-page is 2', () => {
@@ -42,7 +42,7 @@ describe('ConsumerTimeline', () => {
 
 describe('ConsumerTimeline + traverse integration', () => {
     const config: BuilderConfig = JSON.parse(
-        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-config.json'), 'utf-8'),
+        readFileSync(join(SAMPLE_POSTS, 'blog-builder-config.json'), 'utf-8'),
     );
     const expectedPage1: Page = JSON.parse(
         readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-timeline-page1.json'), 'utf-8'),

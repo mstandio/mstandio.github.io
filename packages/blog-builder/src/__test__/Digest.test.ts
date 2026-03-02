@@ -9,7 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const SAMPLE_POSTS = join(__dirname, 'sample-posts');
 
 const config: BuilderConfig = JSON.parse(
-    readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-config.json'), 'utf-8'),
+    readFileSync(join(SAMPLE_POSTS, 'blog-builder-config.json'), 'utf-8'),
 );
 
 describe('Digest', () => {
