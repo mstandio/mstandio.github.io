@@ -8,6 +8,7 @@ import { traverse } from '../utils/Traverse.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SAMPLE_POSTS = join(__dirname, 'sample-posts');
+const EXPECTED_FULL = join(__dirname, 'expected-full');
 
 describe('ConsumerTimeline', () => {
     const config: BuilderConfig = JSON.parse(
@@ -21,7 +22,7 @@ describe('ConsumerTimeline', () => {
         const dir1 = join(SAMPLE_POSTS, '251013-some-description');
         const dir2 = join(SAMPLE_POSTS, '251014-some-other-description');
         const expectedPage: Page = JSON.parse(
-            readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-timeline-page1.json'), 'utf-8'),
+            readFileSync(join(EXPECTED_FULL, 'blog-builder-timeline-page1.json'), 'utf-8'),
         );
 
         // when
@@ -45,10 +46,10 @@ describe('ConsumerTimeline + traverse integration', () => {
         readFileSync(join(SAMPLE_POSTS, 'blog-builder-config.json'), 'utf-8'),
     );
     const expectedPage1: Page = JSON.parse(
-        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-timeline-page1.json'), 'utf-8'),
+        readFileSync(join(EXPECTED_FULL, 'blog-builder-timeline-page1.json'), 'utf-8'),
     );
     const expectedPage2: Page = JSON.parse(
-        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-timeline-page2.json'), 'utf-8'),
+        readFileSync(join(EXPECTED_FULL, 'blog-builder-timeline-page2.json'), 'utf-8'),
     );
 
     const mockWriter: Writer = { write: vi.fn() };
@@ -77,7 +78,7 @@ describe('ConsumerTimeline + traverse integration', () => {
 
     it('getIndex returns timeline matching the timeline field in blog-builder-index.json', () => {
         const expectedIndex: Index = JSON.parse(
-            readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-index.json'), 'utf-8'),
+            readFileSync(join(EXPECTED_FULL, 'blog-builder-index.json'), 'utf-8'),
         );
         expect(consumer.getIndex()).toEqual(expectedIndex.timeline);
     });

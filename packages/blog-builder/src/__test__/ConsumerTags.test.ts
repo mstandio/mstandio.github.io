@@ -8,6 +8,7 @@ import { traverse } from '../utils/Traverse.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SAMPLE_POSTS = join(__dirname, 'sample-posts');
+const EXPECTED_FULL = join(__dirname, 'expected-full');
 
 describe('ConsumerTags', () => {
     const config: BuilderConfig = JSON.parse(
@@ -21,7 +22,7 @@ describe('ConsumerTags', () => {
         const dir1 = join(SAMPLE_POSTS, '251013-some-description');  // tags: blue, green, red
         const dir2 = join(SAMPLE_POSTS, '251014-some-other-description');  // tags: red
         const expectedPage: Page = JSON.parse(
-            readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-tag_red-page1.json'), 'utf-8'),
+            readFileSync(join(EXPECTED_FULL, 'blog-builder-tag_red-page1.json'), 'utf-8'),
         );
 
         // when
@@ -45,16 +46,16 @@ describe('ConsumerTags + traverse integration', () => {
         readFileSync(join(SAMPLE_POSTS, 'blog-builder-config.json'), 'utf-8'),
     );
     const expectedRedPage1: Page = JSON.parse(
-        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-tag_red-page1.json'), 'utf-8'),
+        readFileSync(join(EXPECTED_FULL, 'blog-builder-tag_red-page1.json'), 'utf-8'),
     );
     const expectedRedPage2: Page = JSON.parse(
-        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-tag_red-page2.json'), 'utf-8'),
+        readFileSync(join(EXPECTED_FULL, 'blog-builder-tag_red-page2.json'), 'utf-8'),
     );
     const expectedGreenPage1: Page = JSON.parse(
-        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-tag_green-page1.json'), 'utf-8'),
+        readFileSync(join(EXPECTED_FULL, 'blog-builder-tag_green-page1.json'), 'utf-8'),
     );
     const expectedBluePage1: Page = JSON.parse(
-        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-tag_blue-page1.json'), 'utf-8'),
+        readFileSync(join(EXPECTED_FULL, 'blog-builder-tag_blue-page1.json'), 'utf-8'),
     );
 
     const mockWriter: Writer = { write: vi.fn() };
@@ -100,7 +101,7 @@ describe('ConsumerTags + traverse integration', () => {
 
     it('getIndex returns tags matching the tags field in blog-builder-index.json', () => {
         const expectedIndex: Index = JSON.parse(
-            readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-index.json'), 'utf-8'),
+            readFileSync(join(EXPECTED_FULL, 'blog-builder-index.json'), 'utf-8'),
         );
         expect(consumer.getIndex()).toEqual(expectedIndex.tags);
     });

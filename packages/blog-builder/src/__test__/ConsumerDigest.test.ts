@@ -40,7 +40,7 @@ describe('ConsumerDigest', () => {
         const mockDigest = { process: vi.fn() } as unknown as Digest;
         const noHtmlConfig: BuilderConfig = { ...config, 'metadata-file': 'blog-builder-metadata.json' };
         const consumer = new ConsumerDigest(noHtmlConfig, mockDigest);
-        const dirPath = join(SAMPLE_POSTS, 'expected-full');
+        const dirPath = join(__dirname, 'expected-full');
 
         // when — expected-full has no index.html
         consumer.consume(dirPath);

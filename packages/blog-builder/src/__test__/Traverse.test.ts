@@ -29,7 +29,7 @@ describe('traverse', () => {
         ]);
     });
 
-    it('skips non-qualifying subdirectories (e.g. expected-full)', () => {
+    it('skips non-qualifying subdirectories', () => {
         // given
         const names: string[] = [];
         const consumer: Consumer = { consume: (p) => names.push(p), flush: () => {} };
@@ -37,9 +37,8 @@ describe('traverse', () => {
         // when
         traverse(SAMPLE_POSTS, [consumer]);
 
-        // then
+        // then — every visited path must match the YYMMDD- directory name pattern
         expect(names.every((p) => /\d{6}-/.test(p))).toBe(true);
-        expect(names.some((p) => p.includes('expected-full'))).toBe(false);
     });
 
     it('invokes all consumers for each qualifying subdir in list order', () => {
