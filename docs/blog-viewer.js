@@ -2012,15 +2012,15 @@ var require_react_dom_client_development = __commonJS({
         return error;
       }
       function describeBuiltInComponentFrame(name) {
-        if (void 0 === prefix)
+        if (void 0 === prefix2)
           try {
             throw Error();
           } catch (x) {
             var match = x.stack.trim().match(/\n( *(at )?)/);
-            prefix = match && match[1] || "";
+            prefix2 = match && match[1] || "";
             suffix = -1 < x.stack.indexOf("\n    at") ? " (<anonymous>)" : -1 < x.stack.indexOf("@") ? "@unknown:0:0" : "";
           }
-        return "\n" + prefix + name + suffix;
+        return "\n" + prefix2 + name + suffix;
       }
       function describeNativeComponentFrame(fn, construct) {
         if (!fn || reentry) return "";
@@ -2699,8 +2699,8 @@ var require_react_dom_client_development = __commonJS({
                 node.removeAttribute(name);
                 return;
               case "boolean":
-                var prefix2 = name.toLowerCase().slice(0, 5);
-                if ("data-" !== prefix2 && "aria-" !== prefix2) {
+                var prefix3 = name.toLowerCase().slice(0, 5);
+                if ("data-" !== prefix3 && "aria-" !== prefix3) {
                   node.removeAttribute(name);
                   return;
                 }
@@ -4206,11 +4206,11 @@ var require_react_dom_client_development = __commonJS({
         }
         return kind;
       }
-      function addObjectToProperties(object, properties, indent, prefix2) {
+      function addObjectToProperties(object, properties, indent, prefix3) {
         for (var key in object)
-          hasOwnProperty.call(object, key) && "_" !== key[0] && addValueToProperties(key, object[key], properties, indent, prefix2);
+          hasOwnProperty.call(object, key) && "_" !== key[0] && addValueToProperties(key, object[key], properties, indent, prefix3);
       }
-      function addValueToProperties(propertyName, value, properties, indent, prefix2) {
+      function addValueToProperties(propertyName, value, properties, indent, prefix3) {
         switch (typeof value) {
           case "object":
             if (null === value) {
@@ -4230,7 +4230,7 @@ var require_react_dom_client_development = __commonJS({
                   break;
                 }
                 properties.push([
-                  prefix2 + "\xA0\xA0".repeat(indent) + propertyName,
+                  prefix3 + "\xA0\xA0".repeat(indent) + propertyName,
                   "<" + typeName2
                 ]);
                 null !== key && addValueToProperties(
@@ -4238,7 +4238,7 @@ var require_react_dom_client_development = __commonJS({
                   key,
                   properties,
                   indent + 1,
-                  prefix2
+                  prefix3
                 );
                 propertyName = false;
                 for (var propKey in value)
@@ -4247,7 +4247,7 @@ var require_react_dom_client_development = __commonJS({
                     value[propKey],
                     properties,
                     indent + 1,
-                    prefix2
+                    prefix3
                   );
                 properties.push([
                   "",
@@ -4263,7 +4263,7 @@ var require_react_dom_client_development = __commonJS({
                   break;
                 } else if (propKey === ENTRIES_ARRAY) {
                   properties.push([
-                    prefix2 + "\xA0\xA0".repeat(indent) + propertyName,
+                    prefix3 + "\xA0\xA0".repeat(indent) + propertyName,
                     ""
                   ]);
                   for (propertyName = 0; propertyName < value.length; propertyName++)
@@ -4272,7 +4272,7 @@ var require_react_dom_client_development = __commonJS({
                       typeName2[1],
                       properties,
                       indent + 1,
-                      prefix2
+                      prefix3
                     );
                   return;
                 }
@@ -4284,7 +4284,7 @@ var require_react_dom_client_development = __commonJS({
                     value.value,
                     properties,
                     indent,
-                    prefix2
+                    prefix3
                   ), properties.length > typeName2) {
                     properties = properties[typeName2];
                     properties[1] = "Promise<" + (properties[1] || "Object") + ">";
@@ -4295,7 +4295,7 @@ var require_react_dom_client_development = __commonJS({
                   value.reason,
                   properties,
                   indent,
-                  prefix2
+                  prefix3
                 ), properties.length > typeName2)) {
                   properties = properties[typeName2];
                   properties[1] = "Rejected Promise<" + properties[1] + ">";
@@ -4309,10 +4309,10 @@ var require_react_dom_client_development = __commonJS({
               }
               "Object" === typeName2 && (propKey = Object.getPrototypeOf(value)) && "function" === typeof propKey.constructor && (typeName2 = propKey.constructor.name);
               properties.push([
-                prefix2 + "\xA0\xA0".repeat(indent) + propertyName,
+                prefix3 + "\xA0\xA0".repeat(indent) + propertyName,
                 "Object" === typeName2 ? 3 > indent ? "" : "\u2026" : typeName2
               ]);
-              3 > indent && addObjectToProperties(value, properties, indent + 1, prefix2);
+              3 > indent && addObjectToProperties(value, properties, indent + 1, prefix3);
               return;
             }
           case "function":
@@ -4331,7 +4331,7 @@ var require_react_dom_client_development = __commonJS({
             value = String(value);
         }
         properties.push([
-          prefix2 + "\xA0\xA0".repeat(indent) + propertyName,
+          prefix3 + "\xA0\xA0".repeat(indent) + propertyName,
           value
         ]);
       }
@@ -18529,7 +18529,7 @@ var require_react_dom_client_development = __commonJS({
       var fiberStack = [];
       var index$jscomp$0 = -1, contextStackCursor = createCursor(null), contextFiberStackCursor = createCursor(null), rootInstanceStackCursor = createCursor(null), hostTransitionProviderCursor = createCursor(null), disabledDepth = 0, prevLog, prevInfo, prevWarn, prevError, prevGroup, prevGroupCollapsed, prevGroupEnd;
       disabledLog.__reactDisabledLog = true;
-      var prefix, suffix, reentry = false;
+      var prefix2, suffix, reentry = false;
       var componentFrameCache = new ("function" === typeof WeakMap ? WeakMap : Map)();
       var current = null, isRendering = false, hasOwnProperty = Object.prototype.hasOwnProperty, scheduleCallback$3 = Scheduler.unstable_scheduleCallback, cancelCallback$1 = Scheduler.unstable_cancelCallback, shouldYield = Scheduler.unstable_shouldYield, requestPaint = Scheduler.unstable_requestPaint, now$1 = Scheduler.unstable_now, getCurrentPriorityLevel = Scheduler.unstable_getCurrentPriorityLevel, ImmediatePriority = Scheduler.unstable_ImmediatePriority, UserBlockingPriority = Scheduler.unstable_UserBlockingPriority, NormalPriority$1 = Scheduler.unstable_NormalPriority, LowPriority = Scheduler.unstable_LowPriority, IdlePriority = Scheduler.unstable_IdlePriority, log$1 = Scheduler.log, unstable_setDisableYieldValue = Scheduler.unstable_setDisableYieldValue, rendererID = null, injectedHook = null, hasLoggedError = false, isDevToolsPresent = "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__, clz32 = Math.clz32 ? Math.clz32 : clz32Fallback, log = Math.log, LN2 = Math.LN2, nextTransitionUpdateLane = 256, nextTransitionDeferredLane = 262144, nextRetryLane = 4194304, DiscreteEventPriority = 2, ContinuousEventPriority = 8, DefaultEventPriority = 32, IdleEventPriority = 268435456, randomKey = Math.random().toString(36).slice(2), internalInstanceKey = "__reactFiber$" + randomKey, internalPropsKey = "__reactProps$" + randomKey, internalContainerInstanceKey = "__reactContainer$" + randomKey, internalEventHandlersKey = "__reactEvents$" + randomKey, internalEventHandlerListenersKey = "__reactListeners$" + randomKey, internalEventHandlesSetKey = "__reactHandles$" + randomKey, internalRootNodeResourcesKey = "__reactResources$" + randomKey, internalHoistableMarker = "__reactMarker$" + randomKey, allNativeEvents = /* @__PURE__ */ new Set(), registrationNameDependencies = {}, possibleRegistrationNames = {}, hasReadOnlyValue = {
         button: true,
@@ -21754,8 +21754,9 @@ function Page({ url }) {
 var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
 var rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Root element #root not found in document");
+var prefix = window.location.href.includes("mstandio.github.io") ? "/blog" : "";
 (0, import_client.createRoot)(rootElement).render(
-  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react2.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Page, { url: "/blog-builder-timeline-page1.json" }) })
+  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react2.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Page, { url: `${prefix}/blog-builder-timeline-page1.json` }) })
 );
 /*! Bundled license information:
 
