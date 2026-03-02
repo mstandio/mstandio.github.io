@@ -1,1 +1,1 @@
-# blog
+npm run verify -w @blog/blog-builder
