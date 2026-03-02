@@ -1,9 +1,10 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import type { BuilderConfig, Page, Writer } from '../utils/Model.ts';
 import { ConsumerTags } from '../utils/ConsumerTags.ts';
+import { traverse } from '../utils/Traverse.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SAMPLE_POSTS = join(__dirname, 'sample-posts');
@@ -32,5 +33,67 @@ describe('ConsumerTags', () => {
         const [filename, content] = (mockWriter.write as ReturnType<typeof vi.fn>).mock.calls[0] as [string, string];
         expect(filename).toBe('blog-builder-tag_red-page1.json');
         expect(JSON.parse(content)).toEqual(expectedPage);
+    });
+});
+
+// ---------------------------------------------------------------------------
+// ConsumerTags + traverse — integration test
+// ---------------------------------------------------------------------------
+
+describe('ConsumerTags + traverse integration', () => {
+    const config: BuilderConfig = JSON.parse(
+        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-config.json'), 'utf-8'),
+    );
+    const expectedRedPage1: Page = JSON.parse(
+        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-tag_red-page1.json'), 'utf-8'),
+    );
+    const expectedRedPage2: Page = JSON.parse(
+        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-tag_red-page2.json'), 'utf-8'),
+    );
+    const expectedGreenPage1: Page = JSON.parse(
+        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-tag_green-page1.json'), 'utf-8'),
+    );
+    const expectedBluePage1: Page = JSON.parse(
+        readFileSync(join(SAMPLE_POSTS, 'expected-full', 'blog-builder-tag_blue-page1.json'), 'utf-8'),
+    );
+
+    const mockWriter: Writer = { write: vi.fn() };
+
+    beforeAll(() => {
+        const consumer = new ConsumerTags(mockWriter, config);
+        traverse(SAMPLE_POSTS, [consumer]);
+    });
+
+    const callFor = (filename: string): [string, string] | undefined =>
+        ((mockWriter.write as ReturnType<typeof vi.fn>).mock.calls as [string, string][]).find(
+            ([name]) => name === filename,
+        );
+
+    it('invokes write four times — two pages for red, one each for green and blue', () => {
+        expect(mockWriter.write).toHaveBeenCalledTimes(4);
+    });
+
+    it('writes blog-builder-tag_red-page1.json with content matching expected', () => {
+        const call = callFor('blog-builder-tag_red-page1.json');
+        expect(call).toBeDefined();
+        expect(JSON.parse(call![1])).toEqual(expectedRedPage1);
+    });
+
+    it('writes blog-builder-tag_red-page2.json with content matching expected', () => {
+        const call = callFor('blog-builder-tag_red-page2.json');
+        expect(call).toBeDefined();
+        expect(JSON.parse(call![1])).toEqual(expectedRedPage2);
+    });
+
+    it('writes blog-builder-tag_green-page1.json with content matching expected', () => {
+        const call = callFor('blog-builder-tag_green-page1.json');
+        expect(call).toBeDefined();
+        expect(JSON.parse(call![1])).toEqual(expectedGreenPage1);
+    });
+
+    it('writes blog-builder-tag_blue-page1.json with content matching expected', () => {
+        const call = callFor('blog-builder-tag_blue-page1.json');
+        expect(call).toBeDefined();
+        expect(JSON.parse(call![1])).toEqual(expectedBluePage1);
     });
 });
