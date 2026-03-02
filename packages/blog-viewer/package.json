@@ -1,0 +1,25 @@
+{
+    "name": "@blog/blog-viewer",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "verify": "npm run typecheck && npm test",
+        "typecheck": "tsc --noEmit",
+        "test": "vitest run"
+    },
+    "dependencies": {
+        "@blog/shared": "*",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^6.0.0",
+        "@testing-library/react": "^16.0.0",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "jsdom": "^26.0.0",
+        "typescript": "^5.9.3",
+        "vitest": "^4.0.18"
+    }
+}
