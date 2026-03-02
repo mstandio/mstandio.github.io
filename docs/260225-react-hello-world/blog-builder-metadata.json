@@ -1,0 +1,12 @@
+{
+    "post": {
+        "title": "This is third title",
+        "teaser": "This is third teaser text",
+        "date": "2025-10-15",
+        "url": "/251015-third-description",
+        "tags": [
+            "green",
+            "red"
+        ]
+    }
+}
