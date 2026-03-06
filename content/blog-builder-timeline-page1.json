@@ -1,6 +1,17 @@
 {
    "posts": [
       {
+         "title": "Static pages - displaying content",
+         "teaser": "Minimal React application to display single page of posts.",
+         "date": "2026-03-06",
+         "url": "/260306-static-pages-pt3",
+         "tags": [
+            "self-hosting",
+            "node.js",
+            "React"
+         ]
+      },
+      {
          "title": "Static pages - script for ingesting data",
          "teaser": "Test data as specification for spec driven development",
          "date": "2026-02-27",

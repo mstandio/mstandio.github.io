@@ -10,17 +10,6 @@
             "node.js",
             "React"
          ]
-      },
-      {
-         "title": "Static pages - script for ingesting data",
-         "teaser": "Test data as specification for spec driven development",
-         "date": "2026-02-27",
-         "url": "/260227-static-pages-pt2",
-         "tags": [
-            "self-hosting",
-            "spec-kit",
-            "node.js"
-         ]
       }
    ]
 }

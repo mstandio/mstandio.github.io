@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+   <meta charset="UTF-8">
+</head>
+
+<body>
+   <h1 class="blog-builder-title">Static pages - displaying content</h1>
+   <hr/>
+   <a class="blog-builder-tag">self-hosting</a>   
+   <a class="blog-builder-tag">node.js</a>
+   <a class="blog-builder-tag">React</a>
+   <hr/>
+   <span class="blog-builder-teaser">Minimal React application to display single page of posts.</span>   
+   <br/>
+   <br/>
+Using shared model, read *.json that defines page of posts and display its content:
+    <pre>
+    https://github.com/mstandio/JSProjects/tree/main/260306-blog-viewer    
+    </pre>
+So for now I need to have Post Component that renders single Post, then Page Component that maps array of Posts from *.json to list of rendered Posts. 
+On top of that I need to read a single *.json file deserialize it to shared Model type and pass it along to Page component.
+<br>
+<br>
+All this vibe coded "Jesus-take-the-wheel" style which did surprisingly work. Module setup worked nicely in monorepo format, I even got some passing tests out of this.  
+
+</body>
+</html>

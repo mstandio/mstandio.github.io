@@ -11,8 +11,5 @@
         "blog-viewer.tsx",
         "src/**/*.ts",
         "src/**/*.tsx"
-    ],
-    "exclude": [
-        "src/**/*.test.tsx"
     ]
 }
