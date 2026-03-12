@@ -4,6 +4,10 @@
     },
     "tags": [
         {
+            "name": "Java",
+            "pages": 1
+        },
+        {
             "name": "node.js",
             "pages": 1
         },
